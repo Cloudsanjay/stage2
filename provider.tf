@@ -1,0 +1,19 @@
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg1"
+    storage_account_name = "sanjaystgg"
+    container_name       = "sanjaycontainer"
+    key                  = "prod.terraform.tfstate"
+  }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.41.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+  subscription_id = "9a19641f-a0da-455d-9b90-51dc0d0cdfee"
+}
